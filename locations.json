@@ -1,0 +1,50 @@
+    {
+        "LosAngeles":
+            {
+                "amazon-1": "52.94.236.248",
+                "amazon-2": "142.250.70.238",
+                "amazon-3": "52.94.236.248"
+            },
+        "NewYork":
+            {
+                "digitalocean-nyc1": "68.183.22.90",
+                "digitalocean-nyc1": "68.183.22.91",
+                "digitalocean-nyc1": "68.183.22.92"
+            },
+        "Toronto":
+            {
+                "digitalocean-tor1": "138.197.140.159",
+                "digitalocean-tor1": "138.197.140.158"
+            },
+        "Sydney":
+            {
+                "azure-aus-1": "40.126.245.169",
+                "digitalocean-sydney": "170.64.248.241",
+                "digitalocean-sydney": "170.64.248.248"
+            },
+        "Africa":
+            {
+                "amazon-cape-town": "96.0.50.52"
+            },
+        "HongKong":
+            {
+                "amazon-hong-kong-1": "18.166.1.0"
+            },
+        "SanJose":
+            {
+                "digitalocean-sjo1": "165.232.152.143",
+                "digitalocean-sjo2":"165.232.152.241",
+                "digitalocean-sjo3":"165.232.152.193"
+            },
+        "Amsterdam":
+            {
+                "digitalocean-amsterdam-1": "198.199.124.248",
+                "digitalocean-amsterdam-2": "198.199.125.252",
+                "digitalocean-amsterdam-3": "198.199.126.246"
+            },
+        "Bangalore":
+            {
+                "digitalocean-bangalore-1": "128.199.16.19",
+                "digitalocean-bangalore-1": "128.199.16.20"
+            }
+    }
