@@ -3,12 +3,12 @@ whereami is a tool which answers the question of where a system is located on Ea
 or space, as long as the system can reach other systems with ICMP.
 
 ## How does it work?
-whereami uses Ping which uses ICMP Echo Requests and a database of KNOWN SYSTEMS to
-narrow-down where it must be based on how fast the various other systems reply.
+whereami uses Ping / ICMP Echo Requests and a list of KNOWN systems to approximately
+infer where it must be located based on the response times of other systems.
 
 ## What is the point?
 Believe it or not, it can be somewhat difficult - or even impossible - to pinpoint exactly where
-a system is located - even as your using it. You usually only ever have an approximation.
+a system is located - even as you're using it. You usually only ever have an approximation.
 
 There are various classic systems and techniques which can help:
 * Traceroute
@@ -18,13 +18,13 @@ There are various classic systems and techniques which can help:
 * GeoIP Databases
 
 Used together, we can get a pretty good indicator of WHERE in the world our
-system is, and which networks host it, But getting a really close pinpoint is much harder. These systems
-are incomplete, generally the databases are not current and the information about physical location is variable
-and opaque, by design.
+system is, and which networks host it, But getting a really close pinpoint is much harder. 
+
+Generally the databases are not current and the information about physical location is variable and opaque, by design.
 
 This is because ISP's, DataCenter Providers and Cloud Hosting Providers don't want to give away
-too much information for security reasons.
-They'll tell you you system is inside a region - inside an availability-zone but not which DataCenter and
+too much information for security and privacy reasons.
+They'll tell you a system is inside a region and inside an availability-zone but not which DataCenter and
 certainly not any information about internal datacenter architecture.
 
 ## So how does this tool know its own location?
@@ -39,10 +39,10 @@ If the dataset of locations and pingable IP's covers every datacenter in the wor
 determine that it's in the same DC as the fastest responding host.
 
 ## Contributing
-We need to build out the locations.json file to contain as many hosts inside datacenters as possible.
+We need to build out the locations.json file to contain as many known hosts inside datacenters as possible.
 
-If you own a system which consistently responds to pings and you know the datacenter which it's located in, you can
-add it under the appropriate region.
+If you own a system which consistently responds to pings and you know the datacenter within which it's located, you can
+add it under the appropriate region in locations.json
 
 ## File Format
 
