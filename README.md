@@ -8,6 +8,7 @@ infer where it must be located based on the response times of other systems.
 
 ## TLDR:
 ```bash
+python3 -m pip install -r requirements.txt
 python3 main.py
 ```
 
