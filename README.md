@@ -33,6 +33,16 @@ too much information for security and privacy reasons.
 They'll tell you a system is inside a region and inside an availability-zone but not which DataCenter and
 certainly not any information about internal datacenter architecture.
 
+## But why would i care?
+If you're deploying distributed/connected workloads and resources in various locations, their distance in hops
+matters from a performance and reliability perspective.
+
+Generally speaking, the less distance a packet needs to travel the less it will cost and the more reliable
+its journey will be.
+
+Sure, you can put everything in a single DC or region, at the cost of performance for edge customers.
+You can also garner cost savings by running selected workloads on cheaper hardware.
+
 ## So how does this tool know its own location?
 It's a very simple concept, pinging out to known hosts and narrowing down to find the closest one.
 
@@ -50,7 +60,8 @@ We need to build out the locations.json file to contain as many known hosts insi
 If you own a system which consistently responds to pings and you know the datacenter within which it's located, you can
 add it under the appropriate region in locations.json
 
-## File Format
+## locations.json File Format
+This file should provide as many different providers and DC's as possible under each region for best accuracy.
 
 locations.json
 ```json
@@ -64,7 +75,7 @@ locations.json
 }
 ```
 
-## List
+## Scraped Data
 
 Cloudping https://www.cloudping.info/ Has a list of HTTP pingable IP's which I've scraped into JSON. 
 Credit to Michael Leonhard for putting this list together https://gitlab.com/leonhard-llc/cloudping.info
@@ -98,3 +109,5 @@ for line in lines:
 print(json.dumps(output))
 ```
 
+TODO:
+    Break up the existing regions into continents to get a faster look up time.
