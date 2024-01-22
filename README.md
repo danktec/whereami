@@ -1,6 +1,6 @@
 # Where Am I?
 whereami is a tool which answers the question of where a system is located on Earth. Or on another planet,
-or space, as long as the system can reach other systems with ICMP.
+or space, as long as the system can reach other systems with ICMP or HTTP.
 
 ## How does it work?
 whereami uses Ping / ICMP Echo Requests and a list of KNOWN systems to approximately
@@ -44,7 +44,7 @@ Sure, you can put everything in a single DC or region, at the cost of performanc
 You can also garner cost savings by running selected workloads on cheaper hardware.
 
 ## So how does this tool know its own location?
-It's a very simple concept, pinging out to known hosts and narrowing down to find the closest one.
+It's a very simple concept, pinging out to known hosts and narrowing down to find the fastest one.
 
 If a host is INSIDE our datacenter, then we will get the lowest possible response-time to our ping.
 
@@ -110,4 +110,7 @@ print(json.dumps(output))
 ```
 
 TODO:
-    Break up the existing regions into continents to get a faster look up time.
+    * Break up the existing regions into continents to get a faster look up time.
+    * Add HTTP ping
+    * Add click or argparse for --verbose output and other options
+    * Distribute as pip module
