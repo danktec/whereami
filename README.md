@@ -6,6 +6,11 @@ or space, as long as the system can reach other systems with ICMP.
 whereami uses Ping / ICMP Echo Requests and a list of KNOWN systems to approximately
 infer where it must be located based on the response times of other systems.
 
+## TLDR:
+```bash
+python3 main.py
+```
+
 ## What is the point?
 Believe it or not, it can be somewhat difficult - or even impossible - to pinpoint exactly where
 a system is located - even as you're using it. You usually only ever have an approximation.
@@ -51,11 +56,44 @@ locations.json
 {
     "[region]":
         {
-            "[provider_name-datacenter_name]": "[pingable_ip_address]",
+            "[provider_name-dc_code]": "[pingable_address]",
             "[...]": "[...]"
         },
     "[...]": {}
 }
 ```
 
-TODO: standardize the provider / datacenter name format.
+## List
+
+Cloudping https://www.cloudping.info/ Has a list of HTTP pingable IP's which I've scraped into JSON. 
+Credit to Michael Leonhard for putting this list together https://gitlab.com/leonhard-llc/cloudping.info
+
+```bash
+wget https://www.cloudping.info/ | grep -A 3 "<tr>" | grep "<td" > test.csv
+```
+
+```python3
+import json
+f = open("test.csv")
+lines = f.readlines()
+output = {}
+for line in lines:
+    if line.find("<td>") > 0:
+        left = line.split(">")[1]
+        right = left.split("<")
+        region_name = right[0]
+        output[region_name] = {}
+
+    # Get the provider    
+    if line.find("<b>") > 0:
+        provider_name = line.split('/')[2]
+
+    # Get the ping URL
+    if line.find("pingUrl") > 0:
+        ping_url = line.split("/")[2]
+        output[region_name][provider_name] = ping_url
+
+
+print(json.dumps(output))
+```
+

@@ -5,6 +5,12 @@ from ping3 import ping, verbose_ping
 # Hit one IP in each region, take the fastest of those and start drilling in there.
 # As the list grows, the group nesting can grow also to keep runtime low
 
+# We first try the reliable ICMP hosts. These should be long-lived and always available.
+# If a ping fails, we try an HTTP ping which is more likely to succeed.
+
+# The more entries we get inside a given region with more specific locations,
+# The more accurate the results.
+
 # Get the region after finding the fastest ip
 def find_region(dict, data):
     for region in dict:
@@ -12,9 +18,14 @@ def find_region(dict, data):
             if k == data:
                 return region
 
+# If ICMP Ping fails, do an HTTP ping on port 80 (443?)
+def http_ping():
+
+    return true
+
 # Only supports 2x pings which are averaged.
 # TODO: Use a list comprehention to elegantly calulate over a variable number of pings
-def do_ping(ip, timeout=0.7):
+def icmp_ping(ip, timeout=0.7):
     time = []
     for p in range(2):
         time.append(ping(dest_addr=ip, unit="ms", size=1, timeout=timeout))
@@ -28,18 +39,18 @@ def do_ping(ip, timeout=0.7):
         return False
 
 def main():
-    # https://doc.octoperf.com/runtime/aws/
+
     f = open("./locations.json", "r")
     locations = json.loads(f.read())
     f.close()
 
     # First, check each region to find where we are
     distances = {}
-    for x in locations:
-        print(f"testing {x}")
-        for name, ip in locations[x].items():
+    for region in locations:
+        print(f"Trying {region} Region")
+        for name, ip in locations[region].items():
 
-            ms = do_ping(ip)
+            ms = icmp_ping(ip)
             if ms == False:
                 print(f"failed on {ip}")
                 continue
@@ -63,14 +74,14 @@ def main():
     distances = {}
     for name, ip in locations[suspected_region].items():
 
-        ms = do_ping(ip=ip, timeout=0.5)
+        ms = icmp_ping(ip=ip, timeout=1)
         if ms == False: continue
 
         distances[name] = ms
 
         closest = min(distances, key=distances.get)
 
-        print(f"Testing {name}")
+        print(f"Pinging {name} : {ms}ms")
 
     suspected_region = find_region(locations, closest)
     print(f"\nThe closest point to you is is {closest} in {suspected_region} at {distances[closest]}ms")
