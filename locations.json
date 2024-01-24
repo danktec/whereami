@@ -73,7 +73,7 @@
                         "ibm_syd": "s3.au-syd.cloud-object-storage.appdomain.cloud",
                         "linode_syd1": "speedtest.syd1.linode.com",
                         "azure-aus-1": "40.126.245.169",
-                        "digitalocean_syd": "170.64.248.241",
+                        "digitalocean_syd": "170.64.248.241"
                 },
                 "Melbourne": {
                         "aws_ap-southeast-4": "dynamodb.ap-southeast-4.amazonaws.com"
@@ -184,5 +184,4 @@
                         "aws_ap-south-2": "dynamodb.ap-south-2.amazonaws.com"
                 }
         }
-
 }

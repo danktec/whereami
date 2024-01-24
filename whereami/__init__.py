@@ -37,7 +37,7 @@ def icmp_ping(ip, timeout=0.7):
 
 def main():
     try:
-        f = open("./locations.json", "r")
+        f = open("locations.json", "r")
         locations = json.loads(f.read())
         f.close()
     except FileNotFoundError as ex:
