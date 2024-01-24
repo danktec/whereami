@@ -1,178 +1,188 @@
-    {
-        "Virginia": {
-                "aws_us-east-1": "dynamodb.us-east-1.amazonaws.com"
+{
+        "USA": {
+                "Virginia": {
+                        "aws_us-east-1": "dynamodb.us-east-1.amazonaws.com"
+                },
+                "Ohio": {
+                        "aws_us-east-2": "dynamodb.us-east-2.amazonaws.com"
+                },
+                "California": {
+                        "aws_us-west-1": "dynamodb.us-west-1.amazonaws.com"
+                },
+                "Oregon": {
+                        "aws_us-west-2": "dynamodb.us-west-2.amazonaws.com"
+                },
+                "Montreal": {
+                        "aws_ca-central-1": "dynamodb.ca-central-1.amazonaws.com"
+                },
+                "Dallas": {
+                        "linode_dallas": "speedtest.dallas.linode.com",
+                        "ibm_us-south": "s3.us-south.cloud-object-storage.appdomain.cloud"
+                },
+                "Atlanta": {
+                        "linode_atlanta": "speedtest.atlanta.linode.com"
+                },
+                "LosAngeles": {
+                        "amazon-1": "52.94.236.248",
+                        "amazon-2": "142.250.70.238",
+                        "amazon-3": "52.94.236.248"
+                },
+                "NewYork": {
+                        "coreweave_lga1": "http.speedtest.lga1.coreweave.com",
+                        "digitalocean_nyc3": "nyc3.digitaloceanspaces.com",
+                        "linode_newark": "speedtest.newark.linode.com",
+                        "digitalocean_nyc1": "68.183.22.90"
+                },
+                "WashingtonDC": {
+                        "ibm_us-east": "s3.us-east.cloud-object-storage.appdomain.cloud"
+                },
+                "Toronto": {
+                        "linode_toronto1": "speedtest.toronto1.linode.com",
+                        "digitalocean_tor1": "138.197.140.159"
+                },
+                "Chicago": {
+                        "coreweave_ord1": "http.speedtest.ord1.coreweave.com"
+                },
+                "us-gov-east-1": {
+                        "aws.amazon.com": "dynamodb.us-gov-east-1.amazonaws.com"
+                },
+                "us-gov-west-1": {
+                        "aws.amazon.com": "dynamodb.us-gov-west-1.amazonaws.com"
+                },
+                "LasVegas": {
+                        "coreweave_las1": "http.speedtest.las1.coreweave.com"
+                },
+                "SanJose": {
+                        "digitalocean-sjo1": "165.232.152.143",
+                        "digitalocean-sjo2": "165.232.152.241",
+                        "digitalocean-sjo3": "165.232.152.193"
+                },
+                "SanFrancisco": {
+                        "linode_fremont": "speedtest.fremont.linode.com",
+                        "digitalocean_sfo3": "sfo3.digitaloceanspaces.com",
+                        "digitalocean_sfo2": "sfo2.digitaloceanspaces.com",
+                        "digitalocean_sfo1": "sfo1.digitaloceanspaces.com"
+                },
+                "SãoPaulo": {
+                        "aws_sa-east-1": "dynamodb.sa-east-1.amazonaws.com"
+                }
         },
-        "Ohio": {
-                "aws_us-east-2": "dynamodb.us-east-2.amazonaws.com"
+        "AsiaPac": {
+                "Sydney": {
+                        "aws_ap-southeast-2": "dynamodb.ap-southeast-2.amazonaws.com",
+                        "ibm_syd": "s3.au-syd.cloud-object-storage.appdomain.cloud",
+                        "linode_syd1": "speedtest.syd1.linode.com",
+                        "azure-aus-1": "40.126.245.169",
+                        "digitalocean_syd": "170.64.248.241",
+                },
+                "Melbourne": {
+                        "aws_ap-southeast-4": "dynamodb.ap-southeast-4.amazonaws.com"
+                },
+                "Singapore": {
+                        "aws_ap-southeast-1": "dynamodb.ap-southeast-1.amazonaws.com",
+                        "linode_singapore": "speedtest.singapore.linode.com",
+                        "digitalocean_sgp1": "sgp1.digitaloceanspaces.com"
+                }
         },
-        "California": {
-                "aws_us-west-1": "dynamodb.us-west-1.amazonaws.com"
+        "Asia": {
+                "HongKong": {
+                        "aws_ap-east-1": "dynamodb.ap-east-1.amazonaws.com",
+                        "amazon-hk1": "18.166.1.0"
+                },
+                "Tokyo": {
+                        "aws_ap-northeast-1": "dynamodb.ap-northeast-1.amazonaws.com",
+                        "linode_tokyo2": "speedtest.tokyo2.linode.com"
+                },
+                "Osaka": {
+                        "aws_ap-northeast-3": "dynamodb.ap-northeast-3.amazonaws.com"
+                },
+                "Seoul": {
+                        "aws_ap-northeast-2": "dynamodb.ap-northeast-2.amazonaws.com"
+                },
+                "Bangalore": {
+                        "digitalocean_blr1": "128.199.16.19"
+                },
+                "Mumbai": {
+                        "aws_ap-south-1": "dynamodb.ap-south-1.amazonaws.com",
+                        "linode_mumbai1": "speedtest.mumbai1.linode.com"
+                },
+                "Beijing": {
+                        "aws_cn-north-1": "dynamodb.cn-north-1.amazonaws.com.cn"
+                },
+                "Ningxia": {
+                        "aws_cn-northwest-1": "dynamodb.cn-northwest-1.amazonaws.com.cn"
+                }
         },
-        "Oregon": {
-                "aws_us-west-2": "dynamodb.us-west-2.amazonaws.com"
+        "Africa": {
+               "Jakarta": {
+                        "aws_ap-southeast-3": "dynamodb.ap-southeast-3.amazonaws.com"
+                },
+                "CapeTown": {
+                        "aws_af-south-1": "dynamodb.af-south-1.amazonaws.com",
+                        "amazon-cape-town": "96.0.50.52"
+                }
         },
-        "Montreal": {
-                "aws_ca-central-1": "dynamodb.ca-central-1.amazonaws.com"
+        "EU": {
+                "Amsterdam": {
+                        "digitalocean_ams3": "ams3.digitaloceanspaces.com",
+                        "digitalocean_ams2": "ams2.digitaloceanspaces.com",
+                        "digitalocean_ams1": "ams1.digitaloceanspaces.com"
+                },
+                "Frankfurt": {
+                        "ibm_eu-de": "s3.eu-de.cloud-object-storage.appdomain.cloud",
+                        "digitalocean_fra1": "fra1.digitaloceanspaces.com",
+                        "aws_eu-central-1": "dynamodb.eu-central-1.amazonaws.com",
+                        "linode_frankfurt": "speedtest.frankfurt.linode.com"
+                },
+                "London": {
+                        "aws_eu-west-2": "dynamodb.eu-west-2.amazonaws.com",
+                        "ibm_eu-gb": "s3.eu-gb.cloud-object-storage.appdomain.cloud",
+                        "linode_london": "speedtest.london.linode.com"
+                },
+                "Ireland": {
+                        "aws_eu-west-1": "dynamodb.eu-west-1.amazonaws.com"
+                },
+                "Paris": {
+                        "aws_eu-west-3": "dynamodb.eu-west-3.amazonaws.com"
+                },
+                "Zurich": {
+                        "aws_eu-central-2": "dynamodb.eu-central-2.amazonaws.com"
+                },
+                "Milan": {
+                        "aws_eu-south-1": "dynamodb.eu-south-1.amazonaws.com"
+                },
+                "Spain": {
+                        "aws_eu-south-2": "dynamodb.eu-south-2.amazonaws.com"
+                },
+                "Stockholm": {
+                        "aws_eu-north-1": "dynamodb.eu-north-1.amazonaws.com"
+                },
+                "UK": {
+                        "ovhcloud_uk": "s3.uk.cloud.ovh.net"
+                },
+                "Germany": {
+                        "ovhcloud_de": "s3.de.cloud.ovh.net"
+                },
+                "Strasbourg": {
+                        "ovhcloud_sgb": "s3.sbg.cloud.ovh.net"
+                },
+                "Gravelines": {
+                        "ovhcloud_gra": "s3.gra.cloud.ovh.net"
+                }
         },
-        "Dallas": {
-                "linode_dallas": "speedtest.dallas.linode.com",
-                "ibm_us-south": "s3.us-south.cloud-object-storage.appdomain.cloud"
-        },
-        "Atlanta": {
-                "linode_atlanta": "speedtest.atlanta.linode.com"
-        },
-        "LosAngeles": {
-                "amazon-1": "52.94.236.248",
-                "amazon-2": "142.250.70.238",
-                "amazon-3": "52.94.236.248"
-        },
-        "NewYork": {
-                "coreweave_lga1": "http.speedtest.lga1.coreweave.com",
-                "digitalocean_nyc3": "nyc3.digitaloceanspaces.com",
-                "linode_newark": "speedtest.newark.linode.com",
-                "digitalocean_nyc1": "68.183.22.90"
-
-        },
-        "WashingtonDC": {
-                "ibm_us-east": "s3.us-east.cloud-object-storage.appdomain.cloud"
-        },
-        "Toronto": {
-                "linode_toronto1": "speedtest.toronto1.linode.com",
-                "digitalocean_tor1": "138.197.140.159"
-        },
-        "Chicago": {
-                "coreweave_ord1": "http.speedtest.ord1.coreweave.com"
-        },
-        "Sydney": {
-                "aws_ap-southeast-2": "dynamodb.ap-southeast-2.amazonaws.com",
-                "ibm_syd": "s3.au-syd.cloud-object-storage.appdomain.cloud",
-                "linode_syd1": "speedtest.syd1.linode.com",
-                "azure-aus-1": "40.126.245.169",
-                "digitalocean_syd": "170.64.248.241"
-        },
-        "Melbourne":{
-                "aws_ap-southeast-4": "dynamodb.ap-southeast-4.amazonaws.com"
-        },
-        "Singapore": {
-                 "aws_ap-southeast-1": "dynamodb.ap-southeast-1.amazonaws.com",
-                 "linode_singapore": "speedtest.singapore.linode.com",
-                 "digitalocean_sgp1": "sgp1.digitaloceanspaces.com"
-        },
-        "Jakarta": {
-                 "aws_ap-southeast-3": "dynamodb.ap-southeast-3.amazonaws.com"
-        },
-        "CapeTown": {
-                "aws_af-south-1": "dynamodb.af-south-1.amazonaws.com",
-                "amazon-cape-town": "96.0.50.52"
-        },
-        "HongKong": {
-                "aws_ap-east-1": "dynamodb.ap-east-1.amazonaws.com",
-                "amazon-hk1": "18.166.1.0"
-        },
-        "Tokyo": {
-                "aws_ap-northeast-1": "dynamodb.ap-northeast-1.amazonaws.com",
-                "linode_tokyo2": "speedtest.tokyo2.linode.com"
-        },
-        "SanJose": {
-                "digitalocean-sjo1": "165.232.152.143",
-                "digitalocean-sjo2": "165.232.152.241",
-                "digitalocean-sjo3": "165.232.152.193"
-        },
-        "SanFrancisco": {
-                "linode_fremont": "speedtest.fremont.linode.com",
-                "digitalocean_sfo3": "sfo3.digitaloceanspaces.com",
-                "digitalocean_sfo2": "sfo2.digitaloceanspaces.com",
-                "digitalocean_sfo1": "sfo1.digitaloceanspaces.com"
-        },
-        "Amsterdam": {
-                "digitalocean_ams3": "ams3.digitaloceanspaces.com",
-                "digitalocean_ams2": "ams2.digitaloceanspaces.com",
-                "digitalocean_ams1": "ams1.digitaloceanspaces.com"
-        },
-        "Frankfurt": {
-                "ibm_eu-de": "s3.eu-de.cloud-object-storage.appdomain.cloud",
-                "digitalocean_fra1": "fra1.digitaloceanspaces.com",
-                "aws_eu-central-1": "dynamodb.eu-central-1.amazonaws.com",
-                "linode_frankfurt": "speedtest.frankfurt.linode.com"
-        },
-        "London": {
-                "aws_": "dynamodb.eu-west-2.amazonaws.com",
-                "ibm_eu-gb": "s3.eu-gb.cloud-object-storage.appdomain.cloud",
-                "linode_london": "speedtest.london.linode.com"
-        },
-        "Bangalore": {
-                "digitalocean_blr1": "128.199.16.19"
-        },
-        "Mumbai": {
-                "aws_ap-south-1": "dynamodb.ap-south-1.amazonaws.com",
-                "linode_mumbai1": "speedtest.mumbai1.linode.com"
-        },
-        "Ireland": {
-                "aws_eu-west-1": "dynamodb.eu-west-1.amazonaws.com"
-        },
-        "Paris": {
-                "aws_eu-west-3": "dynamodb.eu-west-3.amazonaws.com"
-        },
-
-        "Zurich": {
-                "aws_eu-central-2": "dynamodb.eu-central-2.amazonaws.com"
-        },
-        "Milan": {
-                "aws_eu-south-1": "dynamodb.eu-south-1.amazonaws.com"
-        },
-        "Spain": {
-                "aws_eu-south-2": "dynamodb.eu-south-2.amazonaws.com"
-        },
-        "Stockholm": {
-                "aws_eu-north-1": "dynamodb.eu-north-1.amazonaws.com"
-        },
-        "TelAviv": {
-                "aws_il-central-1": "dynamodb.il-central-1.amazonaws.com"
-        },
-        "Bahrain": {
-                "aws_me-south-1": "dynamodb.me-south-1.amazonaws.com"
-        },
-        "UAE": {
-                "aws_me-central-1": "streams.dynamodb.me-central-1.amazonaws.com"
-        },
-        "Hyderabad": {
-                "aws_ap-south-2": "dynamodb.ap-south-2.amazonaws.com"
-        },
-        "Osaka": {
-                "aws_ap-northeast-3": "dynamodb.ap-northeast-3.amazonaws.com"
-        },
-        "Seoul": {
-                "aws_ap-northeast-2": "dynamodb.ap-northeast-2.amazonaws.com"
-        },
-        "SãoPaulo": {
-                "aws_sa-east-1": "dynamodb.sa-east-1.amazonaws.com"
-        },
-        "Beijing": {
-                "aws_cn-north-1": "dynamodb.cn-north-1.amazonaws.com.cn"
-        },
-        "Ningxia": {
-                "aws_cn-northwest-1": "dynamodb.cn-northwest-1.amazonaws.com.cn"
-        },
-        "us-gov-east-1": {
-                "aws.amazon.com": "dynamodb.us-gov-east-1.amazonaws.com"
-        },
-        "us-gov-west-1": {
-                "aws.amazon.com": "dynamodb.us-gov-west-1.amazonaws.com"
-        },
-        "LasVegas": {
-                "coreweave_las1": "http.speedtest.las1.coreweave.com"
-        },
-        "Strasbourg": {
-                "ovhcloud_sgb": "s3.sbg.cloud.ovh.net"
-        },
-        "Gravelines": {
-                "ovhcloud_gra": "s3.gra.cloud.ovh.net"
-        },
-        "UK": {
-                "ovhcloud_uk": "s3.uk.cloud.ovh.net"
-        },
-        "Germany": {
-                "ovhcloud_de": "s3.de.cloud.ovh.net"
+        "MiddleEast": {
+                "TelAviv": {
+                        "aws_il-central-1": "dynamodb.il-central-1.amazonaws.com"
+                },
+                "Bahrain": {
+                        "aws_me-south-1": "dynamodb.me-south-1.amazonaws.com"
+                },
+                "UAE": {
+                        "aws_me-central-1": "streams.dynamodb.me-central-1.amazonaws.com"
+                },
+                "Hyderabad": {
+                        "aws_ap-south-2": "dynamodb.ap-south-2.amazonaws.com"
+                }
         }
 
-    }
+}
