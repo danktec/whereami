@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "whereami"
+description = "Pings various known datacenter locations to triangulate itself"
+requires-python = ">=3"
+readme = "README.md"
+keywords = ["python3", "ping", "icmp", "socket", "tool", "http", "locator"]
+license = {file = "LICENSE"}
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "Topic :: System :: Networking",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+]
+dependencies = []
+dynamic = ["version"]
+
+[[project.authors]]
+name = "Dank"
+
+[project.optional-dependencies]
+dev = ["tcppinglib", "poetry", "build", "wheel", "pycodestyle"]
+
+[project.urls]
+Homepage = "https://github.com/danktec/whereami"
+"Issue Tracker" = "https://github.com/danktec/whereami/issues"
+"Source Code" = "https://github.com/danktec/whereami"
+
+[project.scripts]
+ping3 = "whereami.command_line:main"
+
+[tool.setuptools]
+py-modules = ["whereami"]
+
+[tool.setuptools.dynamic]
+version = {attr = "whereami.__version__"}
+
+[tool.setuptools.packages.find]
+exclude = ["contrib", "docs", "tests"]
+
+[tool.poetry]
+name = "whereami"
+version = "1.0.0"
+description = ""
+authors = ["Daniel Korel"]
+readme = "README.md"
+packages = [{include = "whereami"}]
