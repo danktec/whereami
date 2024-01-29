@@ -1,11 +1,7 @@
-[build-system]
-requires = ["setuptools>=61.0.0", "wheel"]
-build-backend = "setuptools.build_meta"
-
 [project]
 name = "whereami"
 description = "Pings various known datacenter locations to triangulate itself"
-requires-python = ">=3"
+requires-python = ">=3.9"
 readme = "README.md"
 keywords = ["python3", "ping", "icmp", "socket", "tool", "http", "locator"]
 license = {file = "LICENSE"}
@@ -21,11 +17,8 @@ classifiers = [
 dependencies = []
 dynamic = ["version"]
 
-[[project.authors]]
-name = "Dank"
-
 [project.optional-dependencies]
-dev = ["tcppinglib", "poetry", "build", "wheel", "pycodestyle"]
+dev = ["tcppinglib", "poetry", "build", "wheel", "pycodestyle", "ping3"]
 
 [project.urls]
 Homepage = "https://github.com/danktec/whereami"
@@ -33,7 +26,7 @@ Homepage = "https://github.com/danktec/whereami"
 "Source Code" = "https://github.com/danktec/whereami"
 
 [project.scripts]
-ping3 = "whereami.command_line:main"
+whereami = "whereami.command_line:main"
 
 [tool.setuptools]
 py-modules = ["whereami"]
@@ -46,8 +39,16 @@ exclude = ["contrib", "docs", "tests"]
 
 [tool.poetry]
 name = "whereami"
-version = "1.0.0"
-description = ""
-authors = ["Daniel Korel"]
+authors = ["dank <4129589+danktec@users.noreply.github.com>"]
 readme = "README.md"
-packages = [{include = "whereami"}]
+description = "Pings various known datacenter locations to triangulate itself"
+version = "1.0.0"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+ping3 = "^4.0.4"
+tcppinglib = "^2.0.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

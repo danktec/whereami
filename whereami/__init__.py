@@ -2,26 +2,36 @@
 
 import json
 import sys
-from ping3 import ping, verbose_ping
-from tcppinglib import tcpping
+from ping3 import ping
+from tcppinglib import tcpping, TCPHost
 
 __version__ = "1.0.0"
 QUIET = False
+LOCATION_FILE = "locations.json"
 
-def find_region(dict, data):
+def validate_json(locations: str) -> bool:
+    with open(locations) as file:
+        try:
+            json.load(file)
+            return True
+        except json.decoder.JSONDecodeError:
+            print(f"Invalid JSON detected in {locations} please fix")
+            return False
+
+def find_region(dict: dict, data: str) -> str:
     for region in dict:
         for k, v in dict[region].items():
             if k == data:
                 return region
 
 # If ICMP Ping fails, do an HTTP ping on port 80
-def http_ping(address):
+def http_ping(address: str) -> TCPHost:
     host = tcpping(address, port=80, timeout=1, count=1, interval=1)
     return host
 
 # Only supports 2x pings which are averaged.
 # TODO: Use a list comprehention to elegantly calulate over a variable number of pings
-def icmp_ping(ip, timeout=0.7):
+def icmp_ping(ip: str, timeout: float=0.7) -> (float, str):
     time = []
     for p in range(2):
         time.append(ping(dest_addr=ip, unit="ms", size=1, timeout=timeout))
@@ -36,13 +46,17 @@ def icmp_ping(ip, timeout=0.7):
         return ms, "HTTP"
 
 def main():
-    try:
-        f = open("locations.json", "r")
-        locations = json.loads(f.read())
-        f.close()
-    except FileNotFoundError as ex:
-        print("Problem loading locations.json file")
+
+    if validate_json(LOCATION_FILE) == False:
         sys.exit(1)
+    else:
+        try:
+            f = open(LOCATION_FILE, "r")
+            locations = json.loads(f.read())
+            f.close()
+        except FileNotFoundError as ex:
+            print(f"Problem loading {LOCATION_FILE} file")
+            sys.exit(1)
 
     print("Starting Continental Scan...")
 

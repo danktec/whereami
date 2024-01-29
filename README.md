@@ -8,9 +8,12 @@ infer where it must be located based on the response times of other systems.
 
 ## TLDR:
 ```bash
+# install poetry
 python3 -m pip install poetry
-poetry build
-python3 -m pip install dist/whereami-1.0.0-py2.py3-none-any.whl --force-reinstall
+# use poetry to install dependencies
+poetry install
+# run as a pip module
+python3 -m pip whereami
 ```
 
 ## What is the point?

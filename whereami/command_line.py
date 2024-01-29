@@ -13,7 +13,7 @@ def main(assigned_args: list = None):
     """
     parser = argparse.ArgumentParser(prog="whereami", description="Pings hosts inside locations.json to infer its own location based on response time")
     parser.add_argument("--version", action="version", version=whereami.__version__)
-    parser.add_argument("-q", "--quiet", action="store_true", dest="quiet", help="Make output less verbose.")
+    parser.add_argument("-q", "--quiet", action="store_true", help="Make output less verbose.")
 
     args = parser.parse_args(assigned_args)
     whereami.QUIET = args.quiet
