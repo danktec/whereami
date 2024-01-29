@@ -8,12 +8,12 @@ infer where it must be located based on the response times of other systems.
 
 ## TLDR:
 ```bash
-# install poetry
-python3 -m pip install poetry
+# install poetry using pipx (installs as a standalone system package)
+pipx install poetry
 # use poetry to install dependencies
 poetry install
-# run as a pip module
-python3 -m pip whereami
+# run the package as a module
+python3 -m whereami
 ```
 
 ## What is the point?
