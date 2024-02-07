@@ -18,7 +18,7 @@ poetry install
 python3 -m whereami
 ```
 
-## What is the point?
+## What's the point?
 Believe it or not, it can be somewhat difficult - or even impossible - to pinpoint exactly where
 a system is located - even as you're using it. You usually only ever have an approximation.
 
@@ -39,7 +39,7 @@ too much information for security and privacy reasons.
 They'll tell you a system is inside a region and inside an availability-zone but not which DataCenter and
 certainly not any information about internal datacenter architecture.
 
-## But why would i care?
+## Why would I care?
 If you're deploying distributed/connected workloads and resources in various locations, their distance in hops
 matters from a performance and reliability perspective.
 
@@ -49,7 +49,9 @@ its journey will be.
 Sure, you can put everything in a single DC or region, at the cost of performance for edge customers.
 You can also garner cost savings by running selected workloads on cheaper hardware.
 
-## So how does this tool know its own location?
+If you're looking to assess network path performance between two points, this is a useful tool. Often you'll find the results switch between two providers which indicate mostly equal performance... once this factor is taken out we can focus on things like cost or reliability to make decisions.
+
+## How does this tool know its own location?
 It's a very simple concept, pinging out to known hosts and narrowing down to find the fastest one.
 
 If a host is INSIDE our datacenter, then we will get the lowest possible response-time to our ping.
