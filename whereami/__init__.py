@@ -2,7 +2,7 @@
 
 import json
 import sys
-from ping3 import ping
+from ping3 import ping as ping3ping
 from tcppinglib import tcpping, TCPHost
 
 __version__ = "1.0.0"
@@ -24,29 +24,32 @@ def find_region(dict: dict, data: str) -> str:
             if k == data:
                 return region
 
-# If ICMP Ping fails, do an HTTP ping on port 80
-def http_ping(address: str) -> TCPHost:
-    host = tcpping(address, port=80, timeout=1, count=1, interval=1)
-    return host
-
-# Only supports 2x pings which are averaged.
-# TODO: Use a list comprehention to elegantly calulate over a variable number of pings
-def icmp_ping(ip: str, timeout: float=0.7) -> (float, str):
+def ping(ip: str, timeout: float=0.7) -> (float, str):
     time = []
     for p in range(2):
-        time.append(ping(dest_addr=ip, unit="ms", size=1, timeout=timeout))
+        time.append(icmp_ping(ip=ip, timeout=timeout))
 
     if time[0] != None and time[1] != None:
         ms = (time[0] + time[1]) / 2
         ms = int("{:.0f}".format(ms))
         return ms, "ICMP"
     else:
-        host = http_ping(ip)
+        host = http_ping(ip, timeout=timeout)
         ms = int("{:.0f}".format(host.avg_rtt))
         return ms, "HTTP"
 
-def main():
+# If ICMP Ping fails, do an HTTP ping on port 80
+def http_ping(address: str, timeout: float) -> TCPHost:
+    host = tcpping(address, port=80, timeout=timeout, count=1, interval=1)
+    return host
 
+# Only supports 2x pings which are averaged.
+# TODO: Use a list comprehention to elegantly calulate over a variable number of pings
+def icmp_ping(ip: str, timeout: float=0.7) -> str:
+        host = ping3ping(dest_addr=ip, unit="ms", size=1, timeout=timeout)
+        return host
+
+def main():
     if validate_json(LOCATION_FILE) == False:
         sys.exit(1)
     else:
@@ -66,7 +69,7 @@ def main():
         for city in locations[continent].items():
             for host in city[1].values():
 
-                ms, type = icmp_ping(host)
+                ms, type = ping(host)
 
                 distances[city[0]] = ms
 
@@ -87,7 +90,7 @@ def main():
     for region_name, cities in locations[suspected_continent].items():
         for name, ip in cities.items():
 
-            ms, type = icmp_ping(ip)
+            ms, type = ping(ip)
 
             distances[name] = ms
 
@@ -109,7 +112,7 @@ def main():
     distances = {}
     for name, ip in locations[suspected_continent][suspected_city].items():
 
-        ms, type = icmp_ping(ip=ip, timeout=1)
+        ms, type = ping(ip=ip, timeout=1)
 
         distances[name] = ms
 

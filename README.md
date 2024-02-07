@@ -6,6 +6,8 @@ or space, as long as the system can reach other systems with ICMP or HTTP.
 whereami uses Ping / ICMP Echo Requests and a list of KNOWN systems to approximately
 infer where it must be located based on the response times of other systems.
 
+Install pipx https://github.com/pypa/pipx
+
 ## TLDR:
 ```bash
 # install poetry using pipx (installs as a standalone system package)
@@ -88,7 +90,7 @@ Credit to Michael Leonhard for putting this list together https://gitlab.com/leo
 wget https://www.cloudping.info/ | grep -A 3 "<tr>" | grep "<td" > test.csv
 ```
 
-```python3
+```python
 import json
 f = open("test.csv")
 lines = f.readlines()
@@ -99,22 +101,15 @@ for line in lines:
         right = left.split("<")
         region_name = right[0]
         output[region_name] = {}
-
-    # Get the provider    
+    # Get the provider
     if line.find("<b>") > 0:
         provider_name = line.split('/')[2]
-
     # Get the ping URL
     if line.find("pingUrl") > 0:
         ping_url = line.split("/")[2]
         output[region_name][provider_name] = ping_url
-
-
 print(json.dumps(output))
 ```
 
-TODO:
-    * Break up the existing regions into continents to get a faster look up time.
-    * Add HTTP ping
-    * Add click or argparse for --verbose output and other options
+# TODO:
     * Distribute as pip module
