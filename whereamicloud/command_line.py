@@ -1,5 +1,5 @@
 import argparse
-import whereami
+import whereamicloud
 
 def main(assigned_args: list = None):
     """
@@ -11,14 +11,14 @@ def main(assigned_args: list = None):
     Returns:
         Closest node tests.
     """
-    parser = argparse.ArgumentParser(prog="whereami", description="Pings hosts inside locations.json to infer its own location based on response time")
-    parser.add_argument("--version", action="version", version=whereami.__version__)
+    parser = argparse.ArgumentParser(prog="whereamicloud", description="Pings hosts inside locations.json to infer its own location based on response time")
+    parser.add_argument("--version", action="version", version=whereamicloud.__version__)
     parser.add_argument("-q", "--quiet", action="store_true", help="Make output less verbose.")
 
     args = parser.parse_args(assigned_args)
-    whereami.QUIET = args.quiet
+    whereamicloud.QUIET = args.quiet
 
-    whereami.main()
+    whereamicloud.main()
 
 if __name__ == "__main__":
     main()

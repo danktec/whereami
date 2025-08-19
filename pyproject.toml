@@ -1,10 +1,10 @@
 [project]
-name = "whereami"
+name = "whereamicloud"
+version = "0.1.0"
 description = "Pings various known datacenter locations to triangulate itself"
-requires-python = ">=3.9"
-readme = "README.md"
-keywords = ["python3", "ping", "icmp", "socket", "tool", "http", "locator"]
-license = {file = "LICENSE"}
+authors = [
+    {name = "Dank", email = "4129589+danktec@users.noreply.github.com"}
+]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Developers",
@@ -14,41 +14,17 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
 ]
-dependencies = []
-dynamic = ["version"]
-
-[project.optional-dependencies]
-dev = ["tcppinglib", "poetry", "build", "wheel", "pycodestyle", "ping3"]
-
-[project.urls]
-Homepage = "https://github.com/danktec/whereami"
-"Issue Tracker" = "https://github.com/danktec/whereami/issues"
-"Source Code" = "https://github.com/danktec/whereami"
-
-[project.scripts]
-whereami = "whereami.command_line:main"
-
-[tool.setuptools]
-py-modules = ["whereami"]
-
-[tool.setuptools.dynamic]
-version = {attr = "whereami.__version__"}
-
-[tool.setuptools.packages.find]
-exclude = ["contrib", "docs", "tests"]
-
-[tool.poetry]
-name = "whereami"
-authors = ["dank <4129589+danktec@users.noreply.github.com>"]
+license = {text = "LICENSE"}
 readme = "README.md"
-description = "Pings various known datacenter locations to triangulate itself"
-version = "1.1.0"
-
-[tool.poetry.dependencies]
-python = "^3.9"
-ping3 = "^4.0.4"
-tcppinglib = "^2.0.3"
+requires-python = ">=3.13"
+dependencies = [
+    "tcppinglib (>=2.0.4,<3.0.0)",
+    "ping3 (>=5.1.5,<6.0.0)"
+]
 
 [build-system]
-requires = ["poetry-core"]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[project.scripts]
+whereamicloud = "whereamicloud.command_line:main"

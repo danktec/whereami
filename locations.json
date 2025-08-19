@@ -1,4 +1,12 @@
 {
+        "Canada": {
+                "Montreal":{
+                        "aws_ca-central-1": "ec2.ca-central-1.amazonaws.com"
+                },
+                "Calgary":{
+                        "aws_ca-west-1": "ec2.ca-west-1.amazonaws.com"
+                }
+        },
         "USA": {
                 "Virginia": {
                         "aws_us-east-1": "dynamodb.us-east-1.amazonaws.com"

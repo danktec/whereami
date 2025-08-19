@@ -1,5 +1,5 @@
 dist/*
 dist
 .idea
-whereami/__pycache__/
-whereami/__pycache__/*
+whereamicloud/__pycache__/
+whereamicloud/__pycache__/*
