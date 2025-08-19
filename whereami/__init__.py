@@ -5,7 +5,7 @@ import sys
 from ping3 import ping as ping3ping
 from tcppinglib import tcpping, TCPHost
 
-__version__ = "1.0.0"
+__version__ = "1.1.0"
 QUIET = False
 LOCATION_FILE = "locations.json"
 

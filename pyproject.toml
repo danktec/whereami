@@ -42,7 +42,7 @@ name = "whereami"
 authors = ["dank <4129589+danktec@users.noreply.github.com>"]
 readme = "README.md"
 description = "Pings various known datacenter locations to triangulate itself"
-version = "1.0.0"
+version = "1.1.0"
 
 [tool.poetry.dependencies]
 python = "^3.9"
