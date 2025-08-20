@@ -6,9 +6,9 @@ import urllib.request
 from ping3 import ping as ping3ping
 from tcppinglib import tcpping, TCPHost
 
-__version__ = "1.2.0"
+__version__ = "1.2.1"
 QUIET = False
-LOCATION_FILE_LOCAL = "locations.json"
+LOCATION_FILE_LOCAL = "/tmp/locations.json"
 LOCATION_FILE_REMOTE = "https://raw.githubusercontent.com/danktec/whereamicloud/refs/heads/main/locations.json"
 
 

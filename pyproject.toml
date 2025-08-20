@@ -1,6 +1,6 @@
 [project]
 name = "whereamicloud"
-version = "1.2.0"
+version = "1.2.1"
 description = "Pings various known datacenter locations to triangulate itself"
 authors = [
     {name = "Dank", email = "4129589+danktec@users.noreply.github.com"}
