@@ -2,12 +2,24 @@
 
 import json
 import sys
+import urllib.request
 from ping3 import ping as ping3ping
 from tcppinglib import tcpping, TCPHost
 
-__version__ = "1.1.0"
+__version__ = "1.2.0"
 QUIET = False
-LOCATION_FILE = "locations.json"
+LOCATION_FILE_LOCAL = "locations.json"
+LOCATION_FILE_REMOTE = "https://raw.githubusercontent.com/danktec/whereamicloud/refs/heads/main/locations.json"
+
+
+def get_locations_file(location_url):
+    if urllib.request.urlretrieve(location_url, LOCATION_FILE_LOCAL):
+        print(f"Downloaded {LOCATION_FILE_LOCAL}...")
+        return True
+    else:
+        print(f"Failed to fetch locations from {LOCATION_FILE_REMOTE}")
+        return False
+
 
 def validate_json(locations: str) -> bool:
     with open(locations) as file:
@@ -18,18 +30,20 @@ def validate_json(locations: str) -> bool:
             print(f"Invalid JSON detected in {locations} please fix")
             return False
 
+
 def find_region(dict: dict, data: str) -> str:
     for region in dict:
         for k, v in dict[region].items():
             if k == data:
                 return region
 
-def ping(ip: str, timeout: float=0.7) -> (float, str):
+
+def ping(ip: str, timeout: float = 0.7) -> (float, str):
     time = []
     for p in range(2):
         time.append(icmp_ping(ip=ip, timeout=timeout))
 
-    if time[0] != None and time[1] != None:
+    if time[0] is not None and time[1] is not None:
         ms = (time[0] + time[1]) / 2
         ms = int("{:.0f}".format(ms))
         return ms, "ICMP"
@@ -38,32 +52,37 @@ def ping(ip: str, timeout: float=0.7) -> (float, str):
         ms = int("{:.0f}".format(host.avg_rtt))
         return ms, "HTTP"
 
+
 # If ICMP Ping fails, do an HTTP ping on port 80
 def http_ping(address: str, timeout: float) -> TCPHost:
     host = tcpping(address, port=80, timeout=timeout, count=1, interval=1)
     return host
 
+
 # Only supports 2x pings which are averaged.
 # TODO: Use a list comprehention to elegantly calulate over a variable number of pings
-def icmp_ping(ip: str, timeout: float=0.7) -> str:
-        host = ping3ping(dest_addr=ip, unit="ms", size=1, timeout=timeout)
-        return host
+def icmp_ping(ip: str, timeout: float = 0.7) -> str:
+    host = ping3ping(dest_addr=ip, unit="ms", size=1, timeout=timeout)
+    return host
+
 
 def main():
-    if validate_json(LOCATION_FILE) == False:
+    if get_locations_file(LOCATION_FILE_REMOTE) is False:
+        sys.exit(1)
+    elif validate_json(LOCATION_FILE_LOCAL) is False:
         sys.exit(1)
     else:
         try:
-            f = open(LOCATION_FILE, "r")
+            f = open(LOCATION_FILE_LOCAL, "r")
             locations = json.loads(f.read())
             f.close()
-        except FileNotFoundError as ex:
-            print(f"Problem loading {LOCATION_FILE} file")
+        except FileNotFoundError:
+            print(f"Problem loading {LOCATION_FILE_LOCAL} file")
             sys.exit(1)
 
     print("Starting Continental Scan...")
 
-    # Contenental location
+    # Continental location
     distances = {}
     for continent in locations:
         for city in locations[continent].items():
@@ -73,7 +92,7 @@ def main():
 
                 distances[city[0]] = ms
 
-                if QUIET == False:
+                if QUIET is False:
                     print(f"You are {ms}ms away from continent {continent} : using {type}")
                 break
             break
@@ -94,7 +113,7 @@ def main():
 
             distances[name] = ms
 
-            if QUIET == False:
+            if QUIET is False:
                 print(f"You are {ms}ms away from {name} in {region_name} : using {type}")
 
             # Only try the first node in each region
@@ -118,11 +137,11 @@ def main():
 
         closest = min(distances, key=distances.get)
 
-        if QUIET == False:
+        if QUIET is False:
             print(f"You are {ms}ms away from {name} in {suspected_city} : using {type}")
 
-    suspected_region = find_region(locations, closest)
-    print(f"The closest node is {closest} in {suspected_city} at {distances[closest]}ms")
+    print(f"\nThe closest node is {closest} in {suspected_city} at {distances[closest]}ms")
+
 
 if __name__ == "__main__":
     main()

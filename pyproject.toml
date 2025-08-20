@@ -1,6 +1,6 @@
 [project]
 name = "whereamicloud"
-version = "0.1.0"
+version = "1.2.0"
 description = "Pings various known datacenter locations to triangulate itself"
 authors = [
     {name = "Dank", email = "4129589+danktec@users.noreply.github.com"}
@@ -19,7 +19,8 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "tcppinglib (>=2.0.4,<3.0.0)",
-    "ping3 (>=5.1.5,<6.0.0)"
+    "ping3 (>=5.1.5,<6.0.0)",
+    "flake8 (>=7.3.0,<8.0.0)"
 ]
 
 [build-system]
